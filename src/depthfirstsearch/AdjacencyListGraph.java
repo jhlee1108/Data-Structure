@@ -24,19 +24,15 @@ public class AdjacencyListGraph {
 	
 	public String toString(){
 		if(size == 0) return "{}";
-		StringBuffer buf = new StringBuffer("{" + adjacencyList[0].vertex);
-		StringBuffer buf2 = new StringBuffer(":");
+		StringBuffer buf = new StringBuffer("{" + adjacencyList[0].vertex + ":");
 		for(Node p = adjacencyList[0].next; p != null; p = p.next){
-			buf2.append(p.vertex);
+			buf.append(p.vertex);
 		}
-		buf.append(buf2);
 		for(int i = 1; i < size; i++){
-			buf.append(", " + adjacencyList[i].vertex);
-			buf2 = new StringBuffer(":");
+			buf.append(", " + adjacencyList[i].vertex + ":");
 			for(Node p = adjacencyList[i].next; p != null; p = p.next){
-				buf2.append(p.vertex);
+				buf.append(p.vertex);
 			}
-			buf.append(buf2);
 		}
 		
 		return buf + "}";
