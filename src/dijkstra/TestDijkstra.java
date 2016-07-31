@@ -24,5 +24,7 @@ public class TestDijkstra {
 		sc.close();
 		
 		System.out.println(weightedGraph);
+		
+		weightedGraph.findShortestPaths("A");
 	}
 }
