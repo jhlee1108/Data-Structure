@@ -47,7 +47,7 @@ public class WeightedGraph {
 	private void printPath(String[] prev, int[] dist) {
 		for(int i = 0; i < prev.length; i++){
 			if(dist[i] == 0){
-				System.out.println(vertices[i] + " : " +"거리" + dist[i] + " / 출발점");
+				System.out.println(vertices[i] + " : " +"weight" + dist[i] + " / start");
 			}
 			else{
 				StringBuffer buf = new StringBuffer(vertices[i]);
@@ -58,7 +58,7 @@ public class WeightedGraph {
 					prevVertex = prev[index(prevVertex)];
 				}
 				
-				System.out.println(vertices[i] + " : " +"거리" + dist[i] + " / " + buf);
+				System.out.println(vertices[i] + " : " +"weight" + dist[i] + " / " + buf);
 			}
 		}
 		
