@@ -1,0 +1,24 @@
+12
+ComputerPrograming
+Software1
+Software2
+SoftwareEngineering1
+HighLevelPrograming
+SystemPrograming
+ComputerArchitecture1
+ComputerArchitecture2
+CPrograming
+DataStructure
+Hardware1
+ComputerLecture
+ComputerPrograming Software1
+ComputerPrograming HighLevelPrograming
+CPrograming DataStructure
+Software1 Software2
+Software1 SoftwareEngineering1
+SystemPrograming ComputerArchitecture1
+DataStructure ComputerArchitecture1
+ComputerArchitecture1 ComputerArchitecture2
+ComputerArchitecture1 Hardware1
+HighLevelPrograming ComputerLecture
+Hardware1 ComputerLecture
