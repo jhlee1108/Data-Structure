@@ -34,7 +34,7 @@ public class FibonacciSequence {
 		}
 		
 		else{
-			return powMatrix(n)[0][1];
+			return powMatrix(n - 1)[0][0];
 		}
 	}
 	
@@ -59,7 +59,7 @@ public class FibonacciSequence {
 		resultMatrix[0][0] = (a[0][0].multiply(b[0][0])).add((a[0][1].multiply(b[1][0])));
 		resultMatrix[0][1] = (a[0][0].multiply(b[0][1])).add((a[0][1].multiply(b[1][1])));
 		resultMatrix[1][0] = (a[1][0].multiply(b[0][0])).add((a[1][1].multiply(b[1][0])));
-		resultMatrix[1][1] = (a[1][0].multiply(b[0][1])).add((a[0][1].multiply(b[1][1])));
+		resultMatrix[1][1] = (a[1][0].multiply(b[0][1])).add((a[1][1].multiply(b[1][1])));
 		
 		return resultMatrix;
 	}
@@ -68,10 +68,10 @@ public class FibonacciSequence {
 		long start, end;
 		
 		for(int i = 0; i <= max; i++){
-			start = System.currentTimeMillis();
+			start = System.nanoTime();
 			BigInteger fibo = fibonacciRecursion(i);
-			end = System.currentTimeMillis();
-			System.out.println("f<" + i + "> = " + fibo + " " + (end - start) + "sec");
+			end = System.nanoTime();
+			print(i, fibo, end - start);
 		}
 	}
 	
@@ -80,10 +80,10 @@ public class FibonacciSequence {
 		fiboArray = new BigInteger[max];
 		
 		for(int i = 0; i < max; i++){
-			start = System.currentTimeMillis();
+			start = System.nanoTime();
 			BigInteger fibo = fibonacciArray(i);
-			end = System.currentTimeMillis();
-			System.out.println("f<" + i + "> = " + fibo + " " + (end - start) + "sec");
+			end = System.nanoTime();
+			print(i, fibo, end - start);		
 		}
 	}
 	
@@ -96,10 +96,14 @@ public class FibonacciSequence {
 		matrix[1][1] = new BigInteger("0");
 		
 		for(int i = 0; i < max; i++){
-			start = System.currentTimeMillis();
+			start = System.nanoTime();
 			BigInteger fibo = fibonacciRecursiveSquaring(i);
-			end = System.currentTimeMillis();
-			System.out.println("f<" + i + "> = " + fibo + " " + (end - start) + "sec");
+			end = System.nanoTime();
+			print(i, fibo, end - start);
 		}
+	}
+	
+	private void print(int i, BigInteger fibo, long time){
+		System.out.println(String.format("f<%2d> = %-25s %15fsec", i, fibo, time / 1000000.0));
 	}
 }
