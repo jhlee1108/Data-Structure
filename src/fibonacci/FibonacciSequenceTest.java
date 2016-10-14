@@ -3,6 +3,7 @@ package fibonacci;
 import java.util.Scanner;
 
 public class FibonacciSequenceTest {
+	
 	public static void main(String[] args){
 		FibonacciSequence fs = new FibonacciSequence();
 		Scanner sc = new Scanner(System.in);
@@ -17,15 +18,15 @@ public class FibonacciSequenceTest {
 		
 		switch(state){
 		case 1:
-			fs.startFibonacciRecursion(n + 1);
+			fs.startFibonacciRecursion(n);
 			break;
 			
 		case 2:
-			fs.startFibonacciArray(n + 1);
+			fs.startFibonacciArray(n);
 			break;
 			
 		case 3:
-			fs.startFibonacciRecursiveSquaring(n + 1);
+			fs.startFibonacciRecursiveSquaring(n);
 			break;
 			
 		default:

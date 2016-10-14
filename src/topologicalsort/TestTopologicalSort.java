@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TestTopologicalSort {
+	
 	public static void main(String[] args) throws FileNotFoundException{
 		Scanner sc = new Scanner(new File("curriculum.txt"));
 		int size = sc.nextInt();

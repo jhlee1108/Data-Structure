@@ -77,9 +77,9 @@ public class FibonacciSequence {
 	
 	public void startFibonacciArray(int max){
 		long start, end;
-		fiboArray = new BigInteger[max];
+		fiboArray = new BigInteger[max + 1];
 		
-		for(int i = 0; i < max; i++){
+		for(int i = 0; i <= max; i++){
 			start = System.nanoTime();
 			BigInteger fibo = fibonacciArray(i);
 			end = System.nanoTime();
@@ -95,7 +95,7 @@ public class FibonacciSequence {
 		matrix[1][0] = new BigInteger("1");
 		matrix[1][1] = new BigInteger("0");
 		
-		for(int i = 0; i < max; i++){
+		for(int i = 0; i <= max; i++){
 			start = System.nanoTime();
 			BigInteger fibo = fibonacciRecursiveSquaring(i);
 			end = System.nanoTime();

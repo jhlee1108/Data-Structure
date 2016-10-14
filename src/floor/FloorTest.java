@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 public class FloorTest {
+	
 	public static void main(String[] args){
 		Floor f = new Floor();
 		Scanner sc = new Scanner(System.in);
