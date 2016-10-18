@@ -56,10 +56,18 @@ public class FibonacciSequence {
 
 	private BigInteger[][] multMatrix(BigInteger[][] a, BigInteger[][] b) {
 		BigInteger[][] resultMatrix = new BigInteger[2][2];
-		resultMatrix[0][0] = (a[0][0].multiply(b[0][0])).add((a[0][1].multiply(b[1][0])));
-		resultMatrix[0][1] = (a[0][0].multiply(b[0][1])).add((a[0][1].multiply(b[1][1])));
-		resultMatrix[1][0] = (a[1][0].multiply(b[0][0])).add((a[1][1].multiply(b[1][0])));
-		resultMatrix[1][1] = (a[1][0].multiply(b[0][1])).add((a[1][1].multiply(b[1][1])));
+		resultMatrix[0][0] = new BigInteger("0");
+		resultMatrix[0][1] = new BigInteger("0");
+		resultMatrix[1][0] = new BigInteger("0");
+		resultMatrix[1][1] = new BigInteger("0");
+		
+		for(int i = 0; i < 2; i++){
+			for(int j = 0; j< 2; j++){
+				for(int k = 0; k < 2; k++){
+					resultMatrix[i][j] = resultMatrix[i][j].add(a[i][k].multiply(b[k][j]));
+				}
+			}
+		}
 		
 		return resultMatrix;
 	}
@@ -77,13 +85,18 @@ public class FibonacciSequence {
 	
 	public void startFibonacciArray(int max){
 		long start, end;
+		long total = 0;
 		fiboArray = new BigInteger[max + 1];
 		
-		for(int i = 0; i <= max; i++){
-			start = System.nanoTime();
-			BigInteger fibo = fibonacciArray(i);
-			end = System.nanoTime();
-			print(i, fibo, end - start);		
+		for (int j = 0; j <= max; j++) {
+			BigInteger fibo = new BigInteger("0");
+			for (int i = 0; i <= j; i++) {
+				start = System.nanoTime();
+				fibo = fibonacciArray(i);
+				end = System.nanoTime();
+				total = total + (end - start);
+			}
+			print(j, fibo, total);
 		}
 	}
 	
@@ -104,6 +117,6 @@ public class FibonacciSequence {
 	}
 	
 	private void print(int i, BigInteger fibo, long time){
-		System.out.println(String.format("f<%2d> = %-25s %15fsec", i, fibo, time / 1000000.0));
+		System.out.println(String.format("f<%2d> = %-25s %.9fsec", i, fibo, time / 1000000000.0));
 	}
 }

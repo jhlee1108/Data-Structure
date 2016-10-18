@@ -17,12 +17,15 @@ public class Skyline {
 	public void printSkyline(){
 		ArrayList<Node> skyline = findSkyline(buildings, 0, buildings.length - 1);
 		StringBuffer buf = new StringBuffer(skyline.get(0).x + "," + skyline.get(1).y);
+		
 		for(int i = 1; i < skyline.size(); i++){
 			if(skyline.get(i).y == skyline.get(i - 1).y){
 				continue;
 			}
+			
 			buf.append("," + skyline.get(i).x + "," + skyline.get(i).y);
 		}
+		
 		System.out.println(buf);
 	}
 
